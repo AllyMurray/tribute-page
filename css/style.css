@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+
+/* Reset padding and margin on all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --primary-color: #64b5f6;
+  --secondary-color: #000;
+  --primary-font-color: rgba(255, 255, 255, 1);
+  --heading-font-color: rgba(255, 255, 255, 0.75);
+  --secondary-font-color: rgba(255, 255, 255, 0.55);
+  --primary-background-color: #424242;
+  --secondary-background-color: #1e88e5;
+
+  /* Spacing */
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-5: 40px;
+  --spacing-6: 48px;
+  --spacing-7: 56px;
+  --spacing-8: 64px;
+  --spacing-9: 72px;
+  --spacing-10: 80px;
+
+  /* Font weights */
+  --font-weight-normal: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+}
+
+html {
+  font-family: "Open Sans";
+}
+
+body {
+  background-color: var(--primary-background-color);
+  color: var(--primary-font-color);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+.content-container > div {
+  padding: var(--spacing-3);
+}
+
+.font-size--title {
+  font-size: 3rem;
+  font-weight: var(--font-weight-semi-bold);
+  padding-bottom: var(--spacing-3);
+}
+
+.font-size--sub-title {
+  color: var(--heading-font-color);
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-semi-bold);
+  padding-bottom: var(--spacing-2);
+}
+
+.font-size--heading {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-semi-bold);
+  padding-bottom: var(--spacing-2);
+}
+
+#background-image {
+  align-items: center;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.85) 90%,
+      rgba(66, 66, 66, 1) 100%
+    ),
+    url("https://upload.wikimedia.org/wikipedia/commons/3/3a/Bletchley_Park_House_home_of_the_World_War_Two_Codebreakers%2C.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 24px);
+  justify-content: center;
+  padding: var(--spacing-3);
+  text-align: center;
+}
+
+.image-container {
+  padding: var(--spacing-3);
+}
+
+.image {
+  display: block;
+  position: relative;
+}
+
+.image--round {
+  border: 3px var(--secondary-font-color) solid;
+  border-radius: 50%;
+  margin: var(--spacing-1);
+}
+
+.image__caption {
+  color: var(--secondary-font-color);
+  font-size: 12px;
+}
+
+.button__link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.button__link:hover,
+.button__link:active {
+  color: #42a5f5;
+  text-decoration: underline;
+}
+
+/* Timeline */
+.timeline__item {
+  padding: 0 var(--spacing-5);
+  min-height: 100px;
+  position: relative;
+}
+
+.timeline__graphic {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 24px;
+}
+
+.timeline__item:last-child > .timeline__graphic {
+  border-bottom: 4px var(--primary-color) solid;
+}
+
+.timeline__graphic:before {
+  background-color: var(--secondary-background-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--primary-color), inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+  content: "";
+  height: var(--spacing-3);
+  position: absolute;
+  top: 0;
+  width: var(--spacing-3);
+}
+
+.timeline__graphic:after {
+  background-color: var(--primary-color);
+  bottom: 0;
+  content: "";
+  left: 10px;
+  position: absolute;
+  top: 27px;
+  width: 4px;
+}
+
+.timeline__date {
+  font-style: italic;
+  margin-bottom: var(--spacing-1);
+}
+
+.timeline__title {
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-semi-bold);
+  margin-bottom: var(--spacing-1);
+}
+
+.timeline__content {
+  padding-bottom: var(--spacing-3);
+}
+
+/* Adjustments for tablet */
+@media (min-width: 768px) {
+  #background-image {
+    background-size: 100% auto;
+  }
+}
+
+/* Adjustments for desktop */
+@media (min-width: 1200px) {
+  #background-image {
+    flex-direction: row;
+  }
+  #title {
+    margin: var(--spacing-4);
+    max-width: 450px;
+  }
+  .content-container {
+    flex-direction: row;
+  }
+  .content-container > div {
+    flex: 1;
+    padding: var(--spacing-5);
+  }
+}
